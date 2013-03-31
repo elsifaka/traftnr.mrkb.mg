@@ -1,4 +1,4 @@
-traftnr.mrkb.mg
-===============
+Yet another twitterbot
 
-traftnr's ::1
+At first, me I does just retweet #traftnr hashtags
+in real time. of course
