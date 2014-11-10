@@ -1,5 +1,14 @@
 #! /usr/bin/env node
 
+path = require('path');
+try {
+    process.chdir(path.resolve(__dirname, ".."));
+}
+catch(e) {
+    console.error(e + "\nCould not change dir :-(\nAborting");
+    process.exit(1);
+}
+
 var twitter = require('twitter');
 var conf = require('./config.json')
 
