@@ -1,7 +1,10 @@
 {
-    "name": "traftnr",
-    "version": "0.1.0",
-    "dependencies": {
-        "ntwitter": ">=0.0.0"
-    }
+  "name": "traftnr",
+  "version": "0.1.0",
+  "dependencies": {
+    "ntwitter": ">=0.0.0"
+  }
+  "bin": {
+    "traftnr": "./traftnr"
+  }
 }
