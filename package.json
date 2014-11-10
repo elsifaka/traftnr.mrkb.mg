@@ -2,8 +2,12 @@
   "name": "traftnr",
   "version": "0.1.0",
   "dependencies": {
-    "ntwitter": ">=0.0.0"
-  }
+    "twitter": "^0.2.13"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:elsifaka/traftnr.mrkb.mg.git"
+  },
   "bin": {
     "traftnr": "./traftnr"
   }

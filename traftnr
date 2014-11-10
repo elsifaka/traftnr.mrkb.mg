@@ -1,10 +1,11 @@
 #! /usr/bin/env node
 
-var twitter = require('ntwitter');
+var twitter = require('twitter');
 var conf = require('./config.json')
 
 var twit = new twitter(conf.twitter)
 
+console.log("Starting traftnrbot tracking " + conf.traftnr)
 twit.stream('statuses/filter', conf.traftnr, function(stream) {
     stream.on('data', function(data) {
         if (data.user.screen_name != conf.screen_name)
