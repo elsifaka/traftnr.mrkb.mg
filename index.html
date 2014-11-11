@@ -15,28 +15,79 @@
 
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
-        <header class="inner">
-          <h1 id="project_title">#traftnr</h1>
-          <!--<h2 id="project_tagline">traftnr's ::1</h2>-->
+      <header class="inner">
+        <h1 id="project_title">#traftnr</h1>
+        <!--<h2 id="project_tagline">traftnr's ::1</h2>-->
 
-            <!--<section id="downloads">-->
-              <!--<a class="zip_download_link" href="https://github.com/elsifaka/traftnr.mrkb.mg/zipball/master">Download this project as a .zip file</a>-->
-              <!--<a class="tar_download_link" href="https://github.com/elsifaka/traftnr.mrkb.mg/tarball/master">Download this project as a tar.gz file</a>-->
-            <!--</section>-->
-        </header>
+        <!--<section id="downloads">-->
+          <!--<a class="zip_download_link" href="https://github.com/elsifaka/traftnr.mrkb.mg/zipball/master">Download this project as a .zip file</a>-->
+          <!--<a class="tar_download_link" href="https://github.com/elsifaka/traftnr.mrkb.mg/tarball/master">Download this project as a tar.gz file</a>-->
+          <!--</section>-->
+      </header>
     </div>
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <p>Parce que les notifications SMS de twitter sont pratiques pour se partager des informations sur les embouteillages...</p>
+        <blockquote>Parce que les notifications SMS de twitter sont pratiques pour se partager des informations sur les embouteillages... Et la circulation à Antananarivo en général.</blockquote>
+        <h2>Comment ça marche ?</h2>
+        <p>L'idée est de se partager des informations sur l'état de la circulation pour faciliter la prise de décision sur le choix d'itinéraire. <a href="https://twitter.com">twitter</a> nous permet d'utiliser des <a href="https://support.twitter.com/articles/75458#" title="RTFM">SMS</a>. Nous pouvons tweeter en envoyant des SMS à <code>+447624801423</code> ou <code>0335640404</code> pour les clients MADACOM<sup>[<a name="madacom" href="#ftn.madacom">*</a>]</sup>. Votre numéro de téléphone doit être associé à votre compte twitter. Les clients de MADACOM peuvent &mdash; <em>la chance</em> &mdash; recevoir des notifications par SMS !</p>
+        <p>Le bot <code>#traftnr</code> re-tweete toutes les publications contenant:</p>
+        <dl>
+          <dt><a href="https://twitter.com/search?f=realtime&q=%23traftnr&src=typd">#traftnr</a></dt>
+          <dd>
+            <p>
+              <strong title="hashtag">Mot-Dièse</strong>, comme sujet de discussion. Votre tweet apparaît sur la timeline de tous vos <strong title="follower">abonnés</strong> et chez toutes les personnes abonnées à <a href="https://twitter.com/traftnr">@traftnr</a>
+            </p>
+            <blockquote class="twitter-tweet" lang="en"><p><a href="https://twitter.com/hashtag/traftnr?src=hash">#traftnr</a> <a href="https://twitter.com/hashtag/SHI2014?src=hash">#SHI2014</a> <a href="https://twitter.com/hashtag/tanjombato?src=hash">#tanjombato</a> à éviter pour les voitures, un peu de <a href="https://twitter.com/hashtag/marche?src=hash">#marche</a> est bon pour la santé et l&#39; <a href="https://twitter.com/hashtag/environnement?src=hash">#environnement</a></p>&mdash; boul25 (@boul25) <a href="https://twitter.com/boul25/status/530323818674274305">November 6, 2014</a></blockquote>
+          </dd>
+          <dt><a href="https://twitter.com/traftnr">@traftnr</a></dt>
+          <dd><p>
+              <strong title="handle">Mention</strong>, en mentionnant le bot. En s'adressant à lui directement, vous évitez de polluer la timeline de vos  <strong title="follower">abonnés</strong>. Seules les personnes abonnées à <a href="https://twitter.com/traftnr">@traftnr</a> et à vous verront votre publication.
+            </p>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <!--<blockquote>-->
+              <!--<p>@traftnr circulation alternée sur la montée d'Ambanidia, côté pharmacie. Cause: Camion en panne.</p>-->
+              <!--</blockquote>-->
+            <blockquote class="twitter-tweet" lang="fr"><p><a href="https://twitter.com/traftnr">@traftnr</a> mauvaise idée: Analakely - Tsiazotafo - Antaninandro :-(</p>&mdash; Tosoa Bacca (@elsifaka) <a href="https://twitter.com/elsifaka/status/531827983250907137">November 10, 2014</a></blockquote>
+            <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </dd>
+        </dl>
+        <h2>Activer les notifications</h2>
+        <p>
+          Pour exploiter au mieux ce bot, n'oubliez pas d'activer vos notifications. Bien sûr le mieux est d'avoir un téléphone mobile. (Si vous avez un numéro madacom <em>033</em>, vous avez de la chance, les SMS marchent. Sinon, il faut en parler à votre opérateur pour qu'ils voient avec twitter comment faire.)
+        </p>
+        <ol>
+          <li>Connectez-vous sur twitter</li>
+          <li>Allez sur <a href="https://twitter.com/traftnr">@traftnr</a></li>
+          <li>Cliquez sur le petit engrenage</li>
+          <li>Vérifiez que vous avez bien <strong>1. Activé les Retweets</strong> et <strong>2. Activé les notifications sur mobiles</strong>.</li>
+          <li>Si vous avez bien suivi ces étapes, votre fenêtre devrait ressembler à la capture d'écran ci-dessous</li>
+        </ol>
+        <p>
+            <img src="/images/activate-mobile-notifications.png" alt="Activer les retweets, Activer les notifications mobiles" />
+        </p>
+        <p>Et puis il y a toujours le <a href="https://support.twitter.com/" title="RTFM">manuel de l'utilisateur de twitter</a>.</p>
+        <h2>Pourquoi un bot ?</h2>
+        <p>Les recherches peuvent être enregistrées mais <a href="https://twitter.com">twitter</a> n'a pas prévu d'envoyer des notifications (nativement) à chaque nouvelle publication correspondant à cette recherche, ce qui exclut les abonnés utilisant un téléphone tout simple (sans connexion internet).</p>
+        <p>Le bot ira se coucher si cette fonctionnalité est implémentée par twitter. Nous n'aurons plus qu'à utiliser le <em>hashtag</em> <a href="https://twitter.com/search?f=realtime&q=%23traftnr&src=typd">#traftnr</a>.</p>
+        <h2>Suggestions et questions</h2>
+        <p>Pour toutes les discussions relatives au bot, adressez-vous à <a href="https://twitter.com/elsifaka">@elsifaka</a>.</p>
+        <h2>Dans les tuyaux</h2>
+        <ul>
+          <li>Publier les informations (pour rappel) sur les jours de marchés de tous les quartiers d'Antananarivo.</li>
+          <li>Publier les informations sur les travaux et les fermetures de routes.</li>
+        </ul>
       </section>
     </div>
 
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">#traftnr maintained by <a href="https://github.com/elsifaka">elsifaka</a></p>
+          <p>
+            <sup>[<a id="ftn.madacom" href="#madacom">*</a>]</sup>Aucune pub pour MADACOM, mais ils ont quand même l'offre SKY pour twitter à volonté ;-)
+          </p>
+        <p class="copyright"><code>#traftnr</code> maintained by <a href="https://twitter.com/elsifaka">@elsifaka</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
