@@ -2,7 +2,8 @@
   "name": "traftnr",
   "version": "0.1.0",
   "dependencies": {
-    "twitter": "^0.2.13"
+    "coffee-script": "^1.8.0",
+    "twit": "^1.1.18"
   },
   "repository": {
     "type": "git",

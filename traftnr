@@ -15,12 +15,18 @@ var conf = require('./config.json')
 
 var twit = new twitter(conf.twitter)
 
-console.log("Starting traftnrbot tracking '" + util.inspect(conf.traftnr.track) + "'");
+console.log("Starting traftnrbot tracking " + util.inspect(conf.traftnr.track));
 twit.stream('statuses/filter', conf.traftnr, function(stream) {
     stream.on('data', function(data) {
-        if (data.user.screen_name != conf.screen_name)
-        twit.retweetStatus(data.id_str, function(){
-            console.log("RT @" + data.user.screen_name + ": " + data.text);
-        });
+        console.log(data.user.screen_name + " tweeted " + data.text);
+        if (data.user.screen_name != conf.screen_name) {
+            try {
+                twit.retweetStatus(data.id_str, function(){
+                    console.log("RT @" + data.user.screen_name + ": " + data.text);
+                });
+            } catch(e) {
+                console.error("Unable to RT")
+            }
+        }
     });
 });
