@@ -19,8 +19,8 @@ T = new Twit {
 }
 stream = T.stream 'statuses/filter', conf.traftnr
 
-stream.on 'connected', ->
-    console.log "#{new Date()} Connected to twitter, tracking #{conf.traftnr.track}"
+stream.on 'disconnected', ->
+    console.log "#{new Date()} disconnected from twitter"
 
 stream.on 'error', (err) ->
     console.error err
@@ -34,14 +34,3 @@ stream.on 'tweet', (tweet) ->
             if err
                 console.error err
             console.log "#{new Date()} #{data.text}"
-
-#console.log "Starting traftnrbot tracking " + util.inspect conf.traftnr.track
-    #stream.on 'data', function data
-        #console.log data.user.screen_name + " tweeted " + data.text
-        #if  data.user.screen_name != conf.screen_name
-            #try
-                #twit.retweetStatus data.id_str, function
-                    #console.log "RT @" + data.user.screen_name + ": " + data.text
-
-             #catch e
-                #console.error "Unable to RT"
