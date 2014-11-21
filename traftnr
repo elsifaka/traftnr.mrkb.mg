@@ -1,32 +1,47 @@
-#! /usr/bin/env node
+#! /usr/bin/env coffee
 
-util = require('util');
-path = require('path');
-try {
-    process.chdir(path.resolve(__dirname, ".."));
+util = require 'util'
+path = require 'path'
+try
+  process.chdir path.resolve __dirname, ".."
+catch e
+    console.error e + "\nCould not change dir :- \nAborting"
+    process.exit 1
+
+
+Twit = require 'twit'
+conf = require './config'
+T = new Twit {
+    consumer_key: conf.twitter.consumer_key
+    consumer_secret: conf.twitter.consumer_secret
+    access_token: conf.twitter.access_token_key
+    access_token_secret: conf.twitter.access_token_secret
 }
-catch(e) {
-    console.error(e + "\nCould not change dir :-(\nAborting");
-    process.exit(1);
-}
+stream = T.stream 'statuses/filter', conf.traftnr
 
-var twitter = require('twitter');
-var conf = require('./config.json')
+stream.on 'connected', ->
+    console.log "#{new Date()} Connected to twitter, tracking #{conf.traftnr.track}"
 
-var twit = new twitter(conf.twitter)
+stream.on 'error', (err) ->
+    console.error err
 
-console.log("Starting traftnrbot tracking " + util.inspect(conf.traftnr.track));
-twit.stream('statuses/filter', conf.traftnr, function(stream) {
-    stream.on('data', function(data) {
-        console.log(data.user.screen_name + " tweeted " + data.text);
-        if (data.user.screen_name != conf.screen_name) {
-            try {
-                twit.retweetStatus(data.id_str, function(){
-                    console.log("RT @" + data.user.screen_name + ": " + data.text);
-                });
-            } catch(e) {
-                console.error("Unable to RT")
-            }
-        }
-    });
-});
+stream.on 'tweet', (tweet) ->
+    console.log "#{new Date()} #{tweet.text}"
+    if tweet.user.screen_name isnt conf.screen_name
+        T.post 'statuses/retweet/:id', {
+            id: tweet.id_str
+        }, (err, data, response) ->
+            if err
+                console.error err
+            console.log "#{new Date()} #{data.text}"
+
+#console.log "Starting traftnrbot tracking " + util.inspect conf.traftnr.track
+    #stream.on 'data', function data
+        #console.log data.user.screen_name + " tweeted " + data.text
+        #if  data.user.screen_name != conf.screen_name
+            #try
+                #twit.retweetStatus data.id_str, function
+                    #console.log "RT @" + data.user.screen_name + ": " + data.text
+
+             #catch e
+                #console.error "Unable to RT"
